@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Creative Developments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @creative_developments.each do |creative_development| %>
+      <tr>
+        <td><%= link_to 'Show', creative_development %></td>
+        <td><%= link_to 'Edit', edit_creative_development_path(creative_development) %></td>
+        <td><%= link_to 'Destroy', creative_development, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Creative development', new_creative_development_path %>
