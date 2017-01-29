@@ -12,6 +12,13 @@ class AccountsController < ApplicationController
   end
 
   def update
+    if @account.update_attributes(account_params)
+      flash[:notice] = "Successfully updated"
+      redirect_to @account
+    else
+      flash[:error] = "Account update failed"
+      render :edit
+    end
   end
 
   def new
@@ -20,6 +27,13 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(account_params)
+    if @account.save
+      flash[:notice] = "Successfully updated"
+      redirect_to @account
+    else
+      flash[:error] = "Account creation failed"
+      render :new
+    end
   end
 
   def destroy
@@ -29,6 +43,7 @@ class AccountsController < ApplicationController
 
   def account_params
     params.require(:account).permit(
+      :name,
       :client,
       :services,
       :instagram,
