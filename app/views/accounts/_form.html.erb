@@ -1,4 +1,5 @@
 <%= form_for(@account) do |f| %>
+
   <% if @account.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
@@ -8,8 +9,66 @@
         <li><%= message %></li>
       <% end %>
       </ul>
+
     </div>
   <% end %>
+
+  <%= f.label :client, "Client" %>
+  <%= f.text_field :client %><br>
+
+  <%= f.label :services, "Services" %>
+  <%= f.text_field :services %><br>
+
+  <%= f.label :instagram, "Instagram" %>
+  <%= f.text_field :instagram %><br>
+
+  <%= f.label :facebook, "Facebook" %>
+  <%= f.text_field :facebook %><br>
+
+  <%= f.label :yelp, "Yelp" %>
+  <%= f.text_field :yelp %><br>
+
+  <%= f.label :slique_email, "Slique Email" %>
+  <%= f.text_field :slique_email %><br>
+
+  <%= f.label :pr_partner, "PR Partner" %>
+  <%= f.text_field :pr_partner %><br>
+
+  <%= f.label :ubest, "Ubest" %>
+  <%= f.check_box :ubest %><br>
+
+  <%= f.label :fivestarboss, "Five Star Boss" %>
+  <%= f.check_box :fivestarboss %><br>
+
+  <%= f.label :facebook_ad, "Facebook Ads" %>
+  <%= f.check_box :facebook_ad %><br>
+
+  <%= f.label :facebook_ad_notes, "Facebook Ad Notes" %>
+  <%= f.text_field :facebook_ad_notes %><br>
+
+  <%= f.label :correspondence, "Correspondence" %>
+  <%= f.text_field :correspondence %><br>
+
+  <%= f.label :messaging_timeline_q1, "Messaging Timeline Q1" %>
+  <%= f.text_field :messaging_timeline_q1 %><br>
+
+  <%= f.label :messaging_timeline_q2, "Messaging Timeline Q2" %>
+  <%= f.text_field :messaging_timeline_q2 %><br>
+
+  <%= f.label :messaging_timeline_q3, "Messaging Timeline Q3" %>
+  <%= f.text_field :messaging_timeline_q3 %><br>
+
+  <%= f.label :messaging_timeline_q4, "Messaging Timeline Q4" %>
+  <%= f.text_field :messaging_timeline_q4 %><br>
+
+  <%= f.label :priorities, "Priorities" %>
+  <%= f.text_field :priorities %><br>
+
+  <%= f.label :promotions, "Promotions" %>
+  <%= f.text_field :promotions %><br>
+
+  <%= f.label :notes, "Notes" %>
+  <%= f.text_field :notes %><br>
 
   <div class="actions">
     <%= f.submit %>

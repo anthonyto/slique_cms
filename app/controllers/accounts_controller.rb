@@ -15,9 +15,11 @@ class AccountsController < ApplicationController
   end
 
   def new
+    @account = Account.new
   end
 
   def create
+    @account = Account.new(account_params)
   end
 
   def destroy
