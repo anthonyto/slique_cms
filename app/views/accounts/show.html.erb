@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h2>Account</h2>
+
 Name: <%= @account.name%><br>
 
 Client: <%= @account.client %><br>
@@ -40,6 +42,26 @@ Promotions: <%= @account.promotions %><br>
 
 Notes: <%= @account.notes %><br>
 
+<h2>Tasks</h2>
 
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
+<% @account.tasks.each do |task| %>
+  <%= task.name %>
+  <%= task.requested %>
+  <%= task.completed %><br>
+<% end %>
+
+<%= link_to 'Add a Task', new_account_task_path(@account) %>
+
+<h2>Creative Developments</h2>
+
+<% @account.creative_developments.each do |cd| %>
+  <%= cd.design_name %>
+  <%= cd.requested %>
+  <%= cd.completed %><br>
+<% end %>
+
+<%= link_to 'Add a Creative Development', new_account_creative_development_path(@account) %>
+
+<br><br>
+
+<%= link_to 'Edit', edit_account_path(@account) %>

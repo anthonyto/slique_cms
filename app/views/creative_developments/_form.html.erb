@@ -1,4 +1,4 @@
-<%= form_for(@creative_development) do |f| %>
+<%= form_for([@account, @creative_development]) do |f| %>
   <% if @creative_development.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@creative_development.errors.count, "error") %> prohibited this creative_development from being saved:</h2>
@@ -10,6 +10,15 @@
       </ul>
     </div>
   <% end %>
+
+  <%= f.label :design_name, "Design Name" %>
+  <%= f.text_field :design_name %><br>
+
+  <%= f.label :requested, "Requested" %>
+  <%= f.date_field :requested %><br>
+
+  <%= f.label :completed, "Completed" %>
+  <%= f.check_box :completed %><br>
 
   <div class="actions">
     <%= f.submit %>
