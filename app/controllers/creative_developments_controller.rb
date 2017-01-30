@@ -36,7 +36,7 @@ class CreativeDevelopmentsController < ApplicationController
   private
 
   def creative_development_params
-    params.require(:creative_development).permit(:name, :requested, :completed)
+    params.require(:creative_development).permit(:design_name, :requested, :completed)
   end
 
   def load_account

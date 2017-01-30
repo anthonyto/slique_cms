@@ -44,23 +44,41 @@ Notes: <%= @account.notes %><br>
 
 <h2>Tasks</h2>
 
-<% @account.tasks.each do |task| %>
-  <%= task.name %>
-  <%= task.requested %>
-  <%= task.completed %><br>
-<% end %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Requested</th>
+    <th>Completed</th>
+  </tr>
+  <% @account.tasks.each do |task| %>
+    <tr>
+      <td><%= task.name %></td>
+      <td><%= task.requested %></td>
+      <td><%= task.completed.humanize %></td>
+    </tr>
+  <% end %>
+</table>
 
-<%= link_to 'Add a Task', new_account_task_path(@account) %>
+<%= link_to 'New Task', new_account_task_path(@account) %>
 
 <h2>Creative Developments</h2>
 
+<table>
+  <tr>
+    <th>Design Name</th>
+    <th>Requested</th>
+    <th>Completed</th>
+  </tr>
 <% @account.creative_developments.each do |cd| %>
-  <%= cd.design_name %>
-  <%= cd.requested %>
-  <%= cd.completed %><br>
-<% end %>
+    <tr>
+      <td><%= cd.design_name %></td>
+      <td><%= cd.requested %></td>
+      <td><%= cd.completed.humanize %></td>
+    </tr>
+  <% end %>
+</table>
 
-<%= link_to 'Add a Creative Development', new_account_creative_development_path(@account) %>
+<%= link_to 'New Creative Development', new_account_creative_development_path(@account) %>
 
 <br><br>
 
