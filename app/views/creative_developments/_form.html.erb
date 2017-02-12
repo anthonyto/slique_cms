@@ -32,5 +32,6 @@
 
   <div class="actions">
     <%= f.submit (f.object.new_record? ? "Add Creative Development" : "Update Creative Development"), class: 'btn green-meadow' %>
+    <%= link_to 'Cancel', :back, class: 'btn grey-silver' %>
   </div>
 <% end %>

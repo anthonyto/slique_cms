@@ -3,43 +3,88 @@
 <h2 class="inline"><%= @account.name %></h2><%= link_to 'Edit', edit_account_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
 
 <div class="sub-container">
-  <strong>Client:</strong> <%= @account.client %><br>
-
-  <strong>Services:</strong> <%= @account.services %><br>
-
-  <strong>Instagram:</strong> <%= @account.instagram %><br>
-
-  <strong>Facebook:</strong> <%= @account.facebook %><br>
-
-  <strong>Yelp:</strong> <%= @account.yelp %><br>
-
-  <strong>Slique_email:</strong> <%= @account.slique_email %><br>
-
-  <strong>Pr_partner:</strong> <%= @account.pr_partner %><br>
-
-  <strong>Ubest:</strong> <%= @account.ubest %><br>
-
-  <strong>Five Star Boss:</strong> <%= @account.fivestarboss %><br>
-
-  <strong>Facebook_ad:</strong> <%= @account.facebook_ad %><br>
-
-  <strong>Facebook Ad Notes:</strong> <%= @account.facebook_ad_notes %><br>
-
-  <strong>Correspondence:</strong> <%= @account.correspondence %><br>
-
-  <strong>Messaging Timeline Q1:</strong> <%= @account.messaging_timeline_q1 %><br>
-
-  <strong>Messaging Timeline Q2:</strong> <%= @account.messaging_timeline_q2 %><br>
-
-  <strong>Messaging Timeline Q3:</strong> <%= @account.messaging_timeline_q3 %><br>
-
-  <strong>Messaging Timeline Q4:</strong> <%= @account.messaging_timeline_q4 %><br>
-
-  <strong>Priorities:</strong> <%= @account.priorities %><br>
-
-  <strong>Promotions:</strong> <%= @account.promotions %><br>
-
-  <strong>Notes:</strong> <%= @account.notes %><br>
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr>
+          <th scope="row">Client</th>
+          <td><%= @account.client %></td>
+        </tr>
+        <tr>
+          <th scope="row">Services</th>
+          <td><%= @account.services %></td>
+        </tr>
+        <tr>
+          <th scope="row">Instagram</th>
+          <td><%= @account.instagram %></td>
+        </tr>
+        <tr>
+          <th scope="row">Facebook</th>
+          <td><%= @account.facebook %></td>
+        </tr>
+        <tr>
+          <th scope="row">Yelp</th>
+          <td><%= @account.yelp %></td>
+        </tr>
+        <tr>
+          <th scope="row">Slique_email</th>
+          <td><%= @account.slique_email %></td>
+        </tr>
+        <tr>
+          <th scope="row">Pr Partner</th>
+          <td><%= @account.pr_partner %></td>
+        </tr>
+        <tr>
+          <th scope="row">Ubest</th>
+          <td><%= @account.ubest.humanize %></td>
+        </tr>
+        <tr>
+          <th scope="row">Five Star Boss</th>
+          <td><%= @account.fivestarboss.humanize %></td>
+        </tr>
+        <tr>
+          <th scope="row">Facebook Ads</th>
+          <td><%= @account.facebook_ad.humanize %></td>
+        </tr>
+        <tr>
+          <th scope="row">Facebook Ad Notes</th>
+          <td><%= @account.facebook_ad_notes %></td>
+        </tr>
+        <tr>
+          <th scope="row">Correspondence</th>
+          <td><%= @account.correspondence %></td>
+        </tr>
+        <tr>
+          <th scope="row">Messaging Timeline Q1</th>
+          <td><%= @account.messaging_timeline_q1 %></td>
+        </tr>
+        <tr>
+          <th scope="row">Messaging Timeline Q2</th>
+          <td><%= @account.messaging_timeline_q2 %></td>
+        </tr>
+        <tr>
+          <th scope="row">Messaging Timeline Q3</th>
+          <td><%= @account.messaging_timeline_q3 %></td>
+        </tr>
+        <tr>
+          <th scope="row">Messaging Timeline Q4</th>
+          <td><%= @account.messaging_timeline_q4 %></td>
+        </tr>
+        <tr>
+          <th scope="row">Priorities</th>
+          <td><%= @account.priorities %></td>
+        </tr>
+        <tr>
+          <th scope="row">Promotions</th>
+          <td><%= @account.promotions %></td>
+        </tr>
+        <tr>
+          <th scope="row">Notes</th>
+          <td><%= @account.notes %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
 <div class="sub-container">
@@ -61,7 +106,7 @@
             <td><%= task.name %></td>
             <td><%= task.requested %></td>
             <td><%= task.completed.humanize %></td>
-            <td><%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn blue-sharp btn-xs' %></td>
+            <td><%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn green btn-xs' %></td>
           </tr>
         <% end %>
       </tbody>
@@ -88,7 +133,7 @@
             <td><%= cd.design_name %></td>
             <td><%= cd.requested %></td>
             <td><%= cd.completed.humanize %></td>
-            <td><%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn blue-sharp btn-xs' %></td>
+            <td><%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn green btn-xs' %></td>
           </tr>
         <% end %>
       </tbody>
