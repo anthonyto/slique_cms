@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.1.0'
+gem 'faker'
 gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem 'rails', '4.2.6'
 gem 'sass-rails', '~> 5.0'

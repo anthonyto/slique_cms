@@ -1,6 +1,6 @@
 account = Account.create(
   name: 'L&L Hawaiian BBQ - La Jolla',
-  client: 'Anthony To, anthony123@example.com',
+  client: "#{ Faker::Name.name } - #{ Faker::Internet.email }",
   services: 'Account management, creative development, Yelp',
   instagram: 'Username: @llbbqlajolla Password: password123',
   facebook: 'https://www.facebook.com/hawaiianbarbecue/',
@@ -29,7 +29,7 @@ account.creative_developments.create(design_name: 'Poster designs', requested: D
 
 account = Account.create(
   name: 'Panda Country - Santee',
-  client: 'Jiaming To, jiaming123@example.com',
+  client: "#{ Faker::Name.name } - #{ Faker::Internet.email }",
   services: 'Account management, creative development, Yelp',
   instagram: 'Username: @pandacountry Password: password123',
   facebook: 'https://www.facebook.com/pandacountry/',
@@ -58,7 +58,7 @@ account.creative_developments.create(design_name: 'Poster designs', requested: D
 
 account = Account.create(
   name: 'Board and Brew - Scripps',
-  client: 'Anthony To, anthony@example.com',
+  client: "#{ Faker::Name.name } - #{ Faker::Internet.email }",
   services: 'Account management, creative development, Yelp',
   instagram: 'Username: @boardandbrew Password: password123',
   facebook: 'https://www.facebook.com/boardandbrew/',
@@ -87,7 +87,7 @@ account.creative_developments.create(design_name: 'Poster designs', requested: D
 
 account = Account.create(
   name: 'Board and Brew - Del Mar',
-  client: 'Anthony To, anthony@example.com',
+  client: "#{ Faker::Name.name } - #{ Faker::Internet.email }",
   services: 'Account management, creative development, Yelp',
   instagram: 'Username: @boardandbrew Password: password123',
   facebook: 'https://www.facebook.com/boardandbrew/',
