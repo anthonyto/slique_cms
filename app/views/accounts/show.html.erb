@@ -88,7 +88,7 @@
 </div>
 
 <div class="sub-container">
-  <h2 class="inline">Tasks</h2><%= link_to 'New', new_account_task_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
+  <h2 class="inline">Tasks</h2><%= link_to 'Add', new_account_task_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
 
   <div class="table-scrollable">
     <table class="table table-hover table-light">
@@ -115,7 +115,7 @@
 </div>
 
 <div class="sub-container">
-  <h2 class="inline">Creative Developments</h2><%= link_to 'New', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
+  <h2 class="inline">Creative Developments</h2><%= link_to 'Add', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
 
   <div class="table-scrollable">
     <table class="table table-hover table-light">
@@ -136,6 +136,31 @@
             <td><%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn green btn-xs' %></td>
           </tr>
         <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
+  <h2 class="inline">Reports</h2><%= link_to 'Add', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
+
+  <div class="table-scrollable">
+    <table class="table table-hover table-light">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= Date.yesterday %></td>
+          <td><%= link_to 'Report', 'http://forestry.sfasu.edu/faculty/stovall/silviculture/images/textbook/report_example_full2.png' %></td>
+        </tr>
+        <tr>
+          <td><%= Date.tomorrow %></td>
+          <td><%= link_to 'Report', 'http://forestry.sfasu.edu/faculty/stovall/silviculture/images/textbook/report_example_full2.png' %></td>
+        </tr>
       </tbody>
     </table>
   </div>
