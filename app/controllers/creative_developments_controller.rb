@@ -1,14 +1,14 @@
 class CreativeDevelopmentsController < ApplicationController
-  before_action :load_account, only: [:new, :create]
+  before_action :load_account, only: [:edit, :update, :new, :create]
   before_action :load_creative_development, only: [:edit, :update, :destroy]
 
   def edit
   end
 
   def update
-    if @creative_development.update_attributes(task_params)
+    if @creative_development.update_attributes(creative_development_params)
       flash[:notice] = "Successfully updated"
-      redirect_to @creative_development
+      redirect_to @account
     else
       flash[:error] = "Creative development update failed"
       render :edit

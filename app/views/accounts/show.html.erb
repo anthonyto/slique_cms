@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2 class="inline"><%= @account.name %></h2><%= link_to 'Edit', edit_account_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
+<h2 class="inline"><%= @account.name %></h2>
 
 <div class="sub-container">
   <div class="table-scrollable">
@@ -27,7 +27,7 @@
           <td><%= @account.yelp %></td>
         </tr>
         <tr>
-          <th scope="row">Slique_email</th>
+          <th scope="row">Slique Email</th>
           <td><%= @account.slique_email %></td>
         </tr>
         <tr>
@@ -50,10 +50,30 @@
           <th scope="row">Facebook Ad Notes</th>
           <td><%= @account.facebook_ad_notes %></td>
         </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
+  <h2 class="inline">Correspondence</h2>
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
         <tr>
           <th scope="row">Correspondence</th>
           <td><%= @account.correspondence %></td>
         </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
+  <h2 class="inline">Messaging Timeline</h2>
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
         <tr>
           <th scope="row">Messaging Timeline Q1</th>
           <td><%= @account.messaging_timeline_q1 %></td>
@@ -70,6 +90,16 @@
           <th scope="row">Messaging Timeline Q4</th>
           <td><%= @account.messaging_timeline_q4 %></td>
         </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
+  <h2 class="inline">Messaging Timeline</h2>
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
         <tr>
           <th scope="row">Priorities</th>
           <td><%= @account.priorities %></td>
@@ -77,10 +107,6 @@
         <tr>
           <th scope="row">Promotions</th>
           <td><%= @account.promotions %></td>
-        </tr>
-        <tr>
-          <th scope="row">Notes</th>
-          <td><%= @account.notes %></td>
         </tr>
       </tbody>
     </table>
@@ -165,3 +191,19 @@
     </table>
   </div>
 </div>
+
+<div class="sub-container">
+  <h2 class="inline">Notes</h2>
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr>
+          <th scope="row">Notes</th>
+          <td><%= @account.notes %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= link_to 'Edit Account', edit_account_path(@account), class: 'btn green-meadow btn-lg inline-btn' %>
