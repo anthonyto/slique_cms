@@ -1,79 +1,156 @@
 <%= form_for(@account) do |f| %>
+  <div class="form-body">
+    <% if @account.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
 
-  <% if @account.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+        <ul>
+        <% @account.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
 
-      <ul>
-      <% @account.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      </div>
+    <% end %>
 
+    <div class="form-group">
+      <%= f.label :name, "Name" %>
+      <div class="input-group">
+        <%= f.text_field :name, class: 'form-control input-xlarge' %>
+      </div>
     </div>
-  <% end %>
 
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name %><br>
+    <div class="form-group">
+      <%= f.label :client, "Client" %>
+      <div class="input-group">
+        <%= f.text_field :client, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :client, "Client" %>
-  <%= f.text_field :client %><br>
+    <div class="form-group">
+      <%= f.label :services, "Services" %>
+      <div class="input-group">
+        <%= f.text_area :services, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :services, "Services" %>
-  <%= f.text_field :services %><br>
+    <div class="form-group">
+      <%= f.label :instagram, "Instagram" %>
+      <div class="input-group">
+        <%= f.text_field :instagram, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :instagram, "Instagram" %>
-  <%= f.text_field :instagram %><br>
 
-  <%= f.label :facebook, "Facebook" %>
-  <%= f.text_field :facebook %><br>
+    <div class="form-group">
+      <%= f.label :facebook, "Facebook" %>
+      <div class="input-group">
+        <%= f.text_field :facebook, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :yelp, "Yelp" %>
-  <%= f.text_field :yelp %><br>
+    <div class="form-group">
+      <%= f.label :yelp, "Yelp" %>
+      <div class="input-group">
+        <%= f.text_field :yelp, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :slique_email, "Slique Email" %>
-  <%= f.text_field :slique_email %><br>
+    <div class="form-group">
+      <%= f.label :slique_email, "Slique Email" %>
+      <div class="input-group">
+        <%= f.text_field :slique_email, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :pr_partner, "PR Partner" %>
-  <%= f.text_field :pr_partner %><br>
+    <div class="form-group">
+      <%= f.label :pr_partner, "PR Partner" %>
+      <div class="input-group">
+        <%= f.text_field :pr_partner, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :ubest, "Ubest" %>
-  <%= f.check_box :ubest %><br>
+    <div class="form-group">
+      <%= f.label :ubest, "Ubest" %>
+      <%= f.check_box :ubest %>
+    </div>
 
-  <%= f.label :fivestarboss, "Five Star Boss" %>
-  <%= f.check_box :fivestarboss %><br>
+    <div class="form-group">
+      <%= f.label :fivestarboss, "Five Star Boss" %>
+      <%= f.check_box :fivestarboss %>
+    </div>
 
-  <%= f.label :facebook_ad, "Facebook Ads" %>
-  <%= f.check_box :facebook_ad %><br>
+    <div class="form-group">
+      <%= f.label :facebook_ad, "Facebook Ads" %>
+      <%= f.check_box :facebook_ad %>
+    </div>
 
-  <%= f.label :facebook_ad_notes, "Facebook Ad Notes" %>
-  <%= f.text_field :facebook_ad_notes %><br>
+    <div class="form-group">
+      <%= f.label :facebook_ad_notes, "Facebook Ad Notes" %>
+      <div class="input-group">
+        <%= f.text_field :facebook_ad_notes, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :correspondence, "Correspondence" %>
-  <%= f.text_field :correspondence %><br>
+    <div class="form-group">
+      <%= f.label :correspondence, "Correspondence" %>
+      <div class="input-group">
+        <%= f.text_field :correspondence, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :messaging_timeline_q1, "Messaging Timeline Q1" %>
-  <%= f.text_field :messaging_timeline_q1 %><br>
+    <div class="form-group">
+      <%= f.label :messaging_timeline_q1, "Messaging Timeline Q1" %>
+      <div class="input-group">
+        <%= f.text_field :messaging_timeline_q1, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :messaging_timeline_q2, "Messaging Timeline Q2" %>
-  <%= f.text_field :messaging_timeline_q2 %><br>
+    <div class="form-group">
+      <%= f.label :messaging_timeline_q2, "Messaging Timeline Q2" %>
+      <div class="input-group">
+        <%= f.text_field :messaging_timeline_q2, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :messaging_timeline_q3, "Messaging Timeline Q3" %>
-  <%= f.text_field :messaging_timeline_q3 %><br>
+    <div class="form-group">
+      <%= f.label :messaging_timeline_q3, "Messaging Timeline Q3" %>
+      <div class="input-group">
+        <%= f.text_field :messaging_timeline_q3, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :messaging_timeline_q4, "Messaging Timeline Q4" %>
-  <%= f.text_field :messaging_timeline_q4 %><br>
+    <div class="form-group">
+      <%= f.label :messaging_timeline_q4, "Messaging Timeline Q4" %>
+      <div class="input-group">
+        <%= f.text_field :messaging_timeline_q4, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :priorities, "Priorities" %>
-  <%= f.text_field :priorities %><br>
+    <div class="form-group">
+      <%= f.label :priorities, "Priorities" %>
+      <div class="input-group">
+        <%= f.text_field :priorities, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :promotions, "Promotions" %>
-  <%= f.text_field :promotions %><br>
+    <div class="form-group">
+      <%= f.label :promotions, "Promotions" %>
+      <div class="input-group">
+        <%= f.text_field :promotions, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <%= f.label :notes, "Notes" %>
-  <%= f.text_field :notes %><br>
+    <div class="form-group">
+      <%= f.label :notes, "Notes" %>
+      <div class="input-group">
+        <%= f.text_area :notes, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit 'Create Account', class: 'btn green-meadow' %>
+    </div>
   </div>
 <% end %>
+<br>

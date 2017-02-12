@@ -1,26 +1,38 @@
 <%= form_for([@account, @task]) do |f| %>
-  <% if @task.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+  <div class="form-body">
+    <% if @task.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
 
-      <ul>
-      <% @task.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name, "Name" %>
+      <div class="input-group">
+        <%= f.text_field :name %>
+      </div>
     </div>
-  <% end %>
 
-  <%= f.label :name, "Name" %>
-  <%= f.text_field :name %><br>
+    <div class="form-group">
+      <%= f.label :requested, "Requested" %>
+      <div class="input-group">
+        <%= f.text_field :requested, class: 'form-control form-control-inline input-medium date-picker', size: 16, placeholder: 'Select date' %>
+      </div>
+    </div>
 
-  <%= f.label :requested, "Requested" %>
-  <%= f.date_field :requested %><br>
+    <div class="form-group">
+      <%= f.label :completed, "Completed" %>
+      <%= f.check_box :completed %>
+    </div>
 
-  <%= f.label :completed, "Completed" %>
-  <%= f.check_box :completed %><br>
-
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit ( f.object.new_record? ? "Add Task" : "Update Task"), class: 'btn green-meadow' %>
+    </div>
   </div>
 <% end %>

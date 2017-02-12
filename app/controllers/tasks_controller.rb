@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :load_account, only: [:new, :create]
+  before_action :load_account, only: [:edit, :update, :new, :create]
   before_action :load_task, only: [:edit, :update, :destroy]
 
   def edit
@@ -8,7 +8,7 @@ class TasksController < ApplicationController
   def update
     if @task.update_attributes(task_params)
       flash[:notice] = "Successfully updated"
-      redirect_to @task
+      redirect_to @account
     else
       flash[:error] = "Task update failed"
       render :edit
@@ -16,7 +16,7 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    @task = @account.tasks.new
   end
 
   def create

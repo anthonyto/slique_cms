@@ -16,7 +16,7 @@ class CreativeDevelopmentsController < ApplicationController
   end
 
   def new
-    @creative_development = CreativeDevelopment.new
+    @creative_development = @account.creative_developments.new
   end
 
   def create
