@@ -73,22 +73,20 @@
   <h2 class="inline">Messaging Timeline</h2>
   <div class="table-scrollable">
     <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Messaging Timeline Q1</th>
+          <th>Messaging Timeline Q2</th>
+          <th>Messaging Timeline Q3</th>
+          <th>Messaging Timeline Q4</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-          <th scope="row">Messaging Timeline Q1</th>
-          <td><%= @account.messaging_timeline_q1 %></td>
-        </tr>
-        <tr>
-          <th scope="row">Messaging Timeline Q2</th>
-          <td><%= @account.messaging_timeline_q2 %></td>
-        </tr>
-        <tr>
-          <th scope="row">Messaging Timeline Q3</th>
-          <td><%= @account.messaging_timeline_q3 %></td>
-        </tr>
-        <tr>
-          <th scope="row">Messaging Timeline Q4</th>
-          <td><%= @account.messaging_timeline_q4 %></td>
+          <td><%= simple_format(@account.messaging_timeline_q1) %></td>
+          <td><%= simple_format(@account.messaging_timeline_q2) %></td>
+          <td><%= simple_format(@account.messaging_timeline_q3) %></td>
+          <td><%= simple_format(@account.messaging_timeline_q4) %></td>
         </tr>
       </tbody>
     </table>
@@ -96,7 +94,7 @@
 </div>
 
 <div class="sub-container">
-  <h2 class="inline">Messaging Timeline</h2>
+  <h2 class="inline">Current Strategy and Objectives</h2>
   <div class="table-scrollable">
     <table class="table table-bordered table-hover">
       <tbody>
