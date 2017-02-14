@@ -1,5 +1,5 @@
 class CreativeDevelopmentsController < ApplicationController
-  before_action :load_account, only: [:edit, :update, :new, :create]
+  before_action :load_account, only: [:edit, :update, :new, :create, :destroy]
   before_action :load_creative_development, only: [:edit, :update, :destroy]
 
   def edit
@@ -31,6 +31,13 @@ class CreativeDevelopmentsController < ApplicationController
   end
 
   def destroy
+    if @creative_development.destroy
+      flash[:notice] = "Creative development deleted"
+      redirect_to @account
+    else
+      flash[:error] = "Creative development could not be deleted, please contact support"
+      redirect_to @account
+    end
   end
 
   private

@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :load_account, only: [:edit, :update, :new, :create]
+  before_action :load_account, only: [:edit, :update, :new, :create, :destroy]
   before_action :load_task, only: [:edit, :update, :destroy]
 
   def edit
@@ -31,6 +31,13 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    if @task.destroy
+      flash[:notice] = "Task deleted"
+      redirect_to @account
+    else
+      flash[:error] = "Task could not be deleted, please contact support"
+      redirect_to @account
+    end
   end
 
   private

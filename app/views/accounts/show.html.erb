@@ -97,14 +97,57 @@
   <h2 class="inline">Current Strategy and Objectives</h2>
   <div class="table-scrollable">
     <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Priorities</th>
+          <th>Promotions</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-          <th scope="row">Priorities</th>
-          <td><%= @account.priorities %></td>
+          <td><%= simple_format(@account.priorities) %></td>
+          <td><%= simple_format(@account.promotions) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
+  <h2 class="inline">Channels</h2><%= link_to 'Add', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
+
+  <div class="table-scrollable">
+    <table class="table table-hover table-light">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Username</th>
+          <th>Password</th>
+          <th>Notes</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Facebook</td>
+          <td><%= Faker::Internet.email %></td>
+          <td><%= Faker::Lorem.word %></td>
+          <td><%= Faker::Lorem.sentence %></td>
+          <td><%= link_to 'Edit', root_path, class: 'btn green btn-xs' %></td>
         </tr>
         <tr>
-          <th scope="row">Promotions</th>
-          <td><%= @account.promotions %></td>
+          <td>Instagram</td>
+          <td><%= Faker::Internet.email %></td>
+          <td><%= Faker::Lorem.word %></td>
+          <td><%= Faker::Lorem.sentence %></td>
+          <td><%= link_to 'Edit', root_path, class: 'btn green btn-xs' %></td>
+        </tr>
+        <tr>
+          <td>Yelp</td>
+          <td><%= Faker::Internet.email %></td>
+          <td><%= Faker::Lorem.word %></td>
+          <td><%= Faker::Lorem.sentence %></td>
+          <td><%= link_to 'Edit', root_path, class: 'btn green btn-xs' %></td>
         </tr>
       </tbody>
     </table>
@@ -114,55 +157,69 @@
 <div class="sub-container">
   <h2 class="inline">Tasks</h2><%= link_to 'Add', new_account_task_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
 
-  <div class="table-scrollable">
-    <table class="table table-hover table-light">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Requested</th>
-          <th>Completed</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @account.tasks.each do |task| %>
+  <% if @account.tasks.empty? %>
+    <p>No tasks yet.</p>
+  <% else %>
+    <div class="table-scrollable">
+      <table class="table table-hover table-light">
+        <thead>
           <tr>
-            <td><%= task.name %></td>
-            <td><%= task.requested %></td>
-            <td><%= task.completed.humanize %></td>
-            <td><%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn green btn-xs' %></td>
+            <th>Name</th>
+            <th>Requested</th>
+            <th>Completed</th>
+            <th></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          <% @account.tasks.each do |task| %>
+            <tr>
+              <td><%= task.name %></td>
+              <td><%= task.requested %></td>
+              <td><%= task.completed.humanize %></td>
+              <td>
+                <%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn green btn-xs' %>
+                <%= link_to 'Delete', account_task_path(@account, task), method: 'delete', class: 'btn red-sunglo btn-xs' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>
 
 <div class="sub-container">
   <h2 class="inline">Creative Developments</h2><%= link_to 'Add', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
 
-  <div class="table-scrollable">
-    <table class="table table-hover table-light">
-      <thead>
-        <tr>
-          <th>Design Name</th>
-          <th>Requested</th>
-          <th>Completed</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @account.creative_developments.each do |cd| %>
+  <% if @account.creative_developments.empty? %>
+    <p>No creative developments yet.</p>
+  <% else %>
+    <div class="table-scrollable">
+      <table class="table table-hover table-light">
+        <thead>
           <tr>
-            <td><%= cd.design_name %></td>
-            <td><%= cd.requested %></td>
-            <td><%= cd.completed.humanize %></td>
-            <td><%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn green btn-xs' %></td>
+            <th>Design Name</th>
+            <th>Requested</th>
+            <th>Completed</th>
+            <th></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+        </thead>
+        <tbody>
+          <% @account.creative_developments.each do |cd| %>
+            <tr>
+              <td><%= cd.design_name %></td>
+              <td><%= cd.requested %></td>
+              <td><%= cd.completed.humanize %></td>
+              <td>
+                <%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn green btn-xs' %>
+                <%= link_to 'Delete', account_creative_development_path(@account, cd), method: 'delete', class: 'btn red-sunglo btn-xs' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>
 
 <div class="sub-container">
