@@ -175,10 +175,9 @@
             <tr>
               <td><%= task.name %></td>
               <td><%= task.requested %></td>
-              <td><%= task.completed.humanize %></td>
+              <td><%= check_box_tag "task_#{ task.id }", nil, task.completed %></td>
               <td>
                 <%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn green btn-xs' %>
-                <%= link_to 'Delete', account_task_path(@account, task), method: 'delete', class: 'btn red-sunglo btn-xs' %>
               </td>
             </tr>
           <% end %>
@@ -209,10 +208,9 @@
             <tr>
               <td><%= cd.design_name %></td>
               <td><%= cd.requested %></td>
-              <td><%= cd.completed.humanize %></td>
+              <td><%= check_box_tag "creative_development_#{ cd.id }", nil, cd.completed %></td>
               <td>
                 <%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn green btn-xs' %>
-                <%= link_to 'Delete', account_creative_development_path(@account, cd), method: 'delete', class: 'btn red-sunglo btn-xs' %>
               </td>
             </tr>
           <% end %>

@@ -26,13 +26,11 @@
       </div>
     </div>
 
-    <div class="form-group">
-      <%= f.label :completed, "Completed" %>
-      <%= f.check_box :completed %>
-    </div>
-
     <div class="actions">
       <%= f.submit (f.object.new_record? ? "Add Task" : "Update Task"), class: 'btn green-meadow' %>
+      <% unless f.object.new_record? %>
+        <%= link_to 'Delete', account_task_path(@account, @task), method: 'delete', class: 'btn red-sunglo' %>
+      <% end %>
       <%= link_to 'Cancel', :back, class: 'btn grey-silver' %>
     </div>
   </div>
