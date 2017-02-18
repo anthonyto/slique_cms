@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'sprockets_better_errors'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
