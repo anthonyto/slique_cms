@@ -175,7 +175,15 @@
             <tr>
               <td><%= task.name %></td>
               <td><%= task.requested %></td>
-              <td><%= check_box_tag "task_#{ task.id }", nil, task.completed %></td>
+              <td>
+                <%= best_in_place task,
+                      :completed,
+                      as: :checkbox,
+                      collection: {
+                        false: fa_icon('circle-o'),
+                        true: fa_icon('check-circle-o') },
+                      url: account_task_path(@account, task) %>
+              </td>
               <td>
                 <%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn green btn-xs' %>
               </td>
@@ -208,7 +216,15 @@
             <tr>
               <td><%= cd.design_name %></td>
               <td><%= cd.requested %></td>
-              <td><%= check_box_tag "creative_development_#{ cd.id }", nil, cd.completed %></td>
+              <td>
+                <%= best_in_place cd,
+                      :completed,
+                      as: :checkbox,
+                      collection: {
+                        false: fa_icon('circle-o'),
+                        true: fa_icon('check-circle-o') },
+                      url: account_creative_development_path(@account, cd) %>
+              </td>
               <td>
                 <%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn green btn-xs' %>
               </td>
