@@ -21,7 +21,9 @@
   <div class="form-group">
     <%= f.label :requested, "Requested" %>
     <div class="input-group">
-      <%= f.text_field :requested, class: 'form-control form-control-inline input-medium date-picker', size: 16, placeholder: 'Select date' %>
+      <%# f.text_field :requested, class: 'form-control form-control-inline input-medium date-picker', size: 16, placeholder: 'Select date' %>
+      <%= f.date_field :requested %>
+
     </div>
   </div>
 

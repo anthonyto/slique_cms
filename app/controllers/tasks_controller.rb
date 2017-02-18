@@ -26,8 +26,8 @@ class TasksController < ApplicationController
   end
 
   def create
-    task = @account.tasks.new(task_params)
-    if task.save
+    @task = @account.tasks.new(task_params)
+    if @task.save
       flash[:notice] = "Task successfully created"
       redirect_to @account
     else

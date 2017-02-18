@@ -26,8 +26,8 @@ class CreativeDevelopmentsController < ApplicationController
   end
 
   def create
-    cd = @account.creative_developments.new(creative_development_params)
-    if cd.save
+    @cd = @account.creative_developments.new(creative_development_params)
+    if @cd.save
       flash[:notice] = "Creative development successfully created"
       redirect_to @account
     else
