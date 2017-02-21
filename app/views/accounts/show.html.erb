@@ -11,24 +11,12 @@
           <td><%= @account.client %></td>
         </tr>
         <tr>
-          <th scope="row">Services</th>
-          <td><%= @account.services %></td>
-        </tr>
-        <tr>
-          <th scope="row">Instagram</th>
-          <td><%= @account.instagram %></td>
-        </tr>
-        <tr>
-          <th scope="row">Facebook</th>
-          <td><%= @account.facebook %></td>
-        </tr>
-        <tr>
-          <th scope="row">Yelp</th>
-          <td><%= @account.yelp %></td>
-        </tr>
-        <tr>
           <th scope="row">Slique Email</th>
           <td><%= @account.slique_email %></td>
+        </tr>
+        <tr>
+          <th scope="row">Services</th>
+          <td><%= @account.services %></td>
         </tr>
         <tr>
           <th scope="row">Pr Partner</th>
@@ -56,13 +44,27 @@
 </div>
 
 <div class="sub-container">
-  <h2 class="inline">Correspondence</h2>
+  <h2 class="inline">Channels</h2>
   <div class="table-scrollable">
-    <table class="table table-bordered table-hover">
+    <table class="table table-hover table-light">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
       <tbody>
         <tr>
-          <th scope="row">Correspondence</th>
-          <td><%= @account.correspondence %></td>
+          <td>Facebook</td>
+          <td><%= simple_format(@account.facebook) %></td>
+        </tr>
+        <tr>
+          <td>Instagram</td>
+          <td><%= simple_format(@account.instagram) %></td>
+        </tr>
+        <tr>
+          <td>Yelp</td>
+          <td><%= simple_format(@account.yelp) %></td>
         </tr>
       </tbody>
     </table>
@@ -107,47 +109,6 @@
         <tr>
           <td><%= simple_format(@account.priorities) %></td>
           <td><%= simple_format(@account.promotions) %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Channels (Beta)</h2><%= link_to 'Add', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
-
-  <div class="table-scrollable">
-    <table class="table table-hover table-light">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Username</th>
-          <th>Password</th>
-          <th>Notes</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Facebook</td>
-          <td><%= Faker::Internet.email %></td>
-          <td><%= Faker::Lorem.word %></td>
-          <td><%= Faker::Lorem.sentence %></td>
-          <td><%= link_to 'Edit', root_path, class: 'btn green btn-xs' %></td>
-        </tr>
-        <tr>
-          <td>Instagram</td>
-          <td><%= Faker::Internet.email %></td>
-          <td><%= Faker::Lorem.word %></td>
-          <td><%= Faker::Lorem.sentence %></td>
-          <td><%= link_to 'Edit', root_path, class: 'btn green btn-xs' %></td>
-        </tr>
-        <tr>
-          <td>Yelp</td>
-          <td><%= Faker::Internet.email %></td>
-          <td><%= Faker::Lorem.word %></td>
-          <td><%= Faker::Lorem.sentence %></td>
-          <td><%= link_to 'Edit', root_path, class: 'btn green btn-xs' %></td>
         </tr>
       </tbody>
     </table>
@@ -237,6 +198,38 @@
 </div>
 
 <div class="sub-container">
+  <h2 class="inline">Correspondence</h2>
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr>
+          <th scope="row">Correspondence</th>
+          <td><%= @account.correspondence %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
+  <h2 class="inline">Notes</h2>
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= simple_format(@account.notes) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
   <h2 class="inline">Reports (Beta)</h2><%= link_to 'Add', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
 
   <div class="table-scrollable">
@@ -255,20 +248,6 @@
         <tr>
           <td><%= Date.tomorrow %></td>
           <td><%= link_to 'Report', 'http://forestry.sfasu.edu/faculty/stovall/silviculture/images/textbook/report_example_full2.png' %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Notes</h2>
-  <div class="table-scrollable">
-    <table class="table table-bordered table-hover">
-      <tbody>
-        <tr>
-          <th scope="row">Notes</th>
-          <td><%= @account.notes %></td>
         </tr>
       </tbody>
     </table>
