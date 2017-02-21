@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170218060033) do
+ActiveRecord::Schema.define(version: 20170221021242) do
 
   create_table "accounts", force: :cascade do |t|
     t.text    "client",                limit: 65535
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20170218060033) do
     t.integer "account_id",  limit: 4
   end
 
+  create_table "reports", force: :cascade do |t|
+    t.text     "focus",                         limit: 65535
+    t.text     "creative_developments_summary", limit: 65535
+    t.text     "upcoming",                      limit: 65535
+    t.text     "questions",                     limit: 65535
+    t.integer  "account_id",                    limit: 4
+    t.datetime "created_at",                                  null: false
+    t.datetime "updated_at",                                  null: false
+  end
+
+  add_index "reports", ["account_id"], name: "index_reports_on_account_id", using: :btree
+
   create_table "tasks", force: :cascade do |t|
     t.string  "name",       limit: 255
     t.date    "requested"
@@ -50,4 +62,5 @@ ActiveRecord::Schema.define(version: 20170218060033) do
     t.integer "account_id", limit: 4
   end
 
+  add_foreign_key "reports", "accounts"
 end
