@@ -1,0 +1,18 @@
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Note</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ir.each do |ir| %>
+      <tr>
+        <td><%= ir.id %></td>
+        <td><%= ir.note %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New', new_instagram_report_path %>

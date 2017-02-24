@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     resources :creative_developments,  except: [:index, :show]
     resources :reports, only: [:new, :create]
   end
+
+  resources :instagram_reports, only: [:index, :new, :create]
+
 end

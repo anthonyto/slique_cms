@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221021242) do
+ActiveRecord::Schema.define(version: 20170224040558) do
 
   create_table "accounts", force: :cascade do |t|
     t.text    "client",                limit: 65535
@@ -41,6 +41,12 @@ ActiveRecord::Schema.define(version: 20170221021242) do
     t.date    "requested"
     t.boolean "completed",               default: false
     t.integer "account_id",  limit: 4
+  end
+
+  create_table "instagram_reports", force: :cascade do |t|
+    t.text     "note",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "reports", force: :cascade do |t|
