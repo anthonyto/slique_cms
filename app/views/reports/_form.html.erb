@@ -1,0 +1,48 @@
+<%= form_for([@account, @report]) do |f| %>
+  <div class="form-body">
+    <% if @report.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@report.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+        <ul>
+        <% @report.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :focus, "Focus" %>
+      <div class="input-group">
+        <%= f.text_area :focus, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :creative_developments_summary, "Creative Developments" %>
+      <div class="input-group">
+        <%= f.text_area :creative_developments_summary, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :upcoming, "Upcoming" %>
+      <div class="input-group">
+        <%= f.text_area :upcoming, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :questions, "questions" %>
+      <div class="input-group">
+        <%= f.text_area :questions, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit 'Create Report', class: 'btn green-meadow' %>
+      <%= link_to 'Cancel', :back, class: 'btn grey-silver' %>
+    </div>
+  </div>
+<% end %>

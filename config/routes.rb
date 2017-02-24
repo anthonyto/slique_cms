@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :accounts do
     resources :tasks, except: [:index, :show]
     resources :creative_developments,  except: [:index, :show]
+    resources :reports, only: [:new, :create]
   end
 end
