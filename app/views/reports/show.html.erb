@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h2 class="inline"><%= @report.month %> report for <%= @report.account.name %></h2>
+<h2 class="inline"><%= @report.month %> report for <%= link_to @report.account.name, @report.account %></h2>
 
 <div class="sub-container">
   <div class="table-scrollable">
