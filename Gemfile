@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'aws-sdk', '~> 2.3.0'
 gem 'best_in_place', '~> 3.0.1'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'faker'
+gem 'figaro'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
 gem 'mysql2', '>= 0.3.13', '< 0.5'

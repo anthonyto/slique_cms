@@ -3,6 +3,7 @@
     <tr>
       <th>ID</th>
       <th>Note</th>
+      <th>Image</th>
     </tr>
   </thead>
   <tbody>
@@ -10,6 +11,7 @@
       <tr>
         <td><%= ir.id %></td>
         <td><%= ir.note %></td>
+        <td><%= image_tag ir.image.url %></td>
       </tr>
     <% end %>
   </tbody>

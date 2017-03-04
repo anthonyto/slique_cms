@@ -21,6 +21,6 @@ class InstagramReportsController < ApplicationController
   private
 
   def instagram_report_params
-    params.require(:instagram_report).permit(:note)
+    params.require(:instagram_report).permit(:note, :image)
   end
 end
