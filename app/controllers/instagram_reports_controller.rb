@@ -22,10 +22,10 @@ class InstagramReportsController < ApplicationController
   def create
     @ir = @report.instagram_reports.new(instagram_report_params)
     if @ir.save
-      flash[:notice] = "IR created"
+      flash[:notice] = "Instagram Report created"
       redirect_to @report
     else
-      flash[:error] = "IR creation failed"
+      flash[:error] = "Instagram Report creation failed"
       redirect_to :back
     end
   end
