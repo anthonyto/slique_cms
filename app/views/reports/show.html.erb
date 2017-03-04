@@ -46,7 +46,7 @@
           <% @report.instagram_reports.each do |ir| %>
             <tr>
               <td><%= ir.note %></td>
-              <td><%= image_tag ir.image %></td>
+              <td><%= ir.image.present? ? image_tag(ir.image) : 'No image' %></td>
               <td>
                 <%= link_to 'Edit', edit_report_instagram_report_path(@report, ir), class: 'btn green btn-xs' %>
                 <%= link_to 'Delete', report_instagram_report_path(@report, ir), method: 'delete', class: 'btn green btn-xs' %>
