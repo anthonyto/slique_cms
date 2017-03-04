@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :reports, only: [:new, :create]
   end
 
-  resources :instagram_reports, only: [:index, :new, :create]
+  resources :reports, only: [:show] do
+    resources :instagram_reports, except: [:index, :show]
+  end
 
 end

@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<h2 class="inline"><%= @report.month %> report for <%= @report.account.name %></h2>
+
+<div class="sub-container">
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr>
+          <th scope="row">Focus</th>
+          <td><%= @report.focus %></td>
+        </tr>
+        <tr>
+          <th scope="row">Creative Developments Summary</th>
+          <td><%= @report.creative_developments_summary %></td>
+        </tr>
+        <tr>
+          <th scope="row">Upcoming</th>
+          <td><%= @report.upcoming %></td>
+        </tr>
+        <tr>
+          <th scope="row">Questions</th>
+          <td><%= @report.questions %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
+  <h2 class="inline">Instagram Reports</h2><%= link_to 'Add', new_report_instagram_report_path(@report), class: 'btn green-meadow btn-xs inline-btn' %>
+
+  <% if @report.instagram_reports.empty? %>
+    <p>No Instagram reports yet.</p>
+  <% else %>
+    <div class="table-scrollable">
+      <table class="table table-hover table-light">
+        <thead>
+          <tr>
+            <th>Note</th>
+            <th>Image</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @report.instagram_reports.each do |ir| %>
+            <tr>
+              <td><%= ir.note %></td>
+              <td><%= image_tag ir.image %></td>
+              <td>
+                <%= link_to 'Edit', edit_report_instagram_report_path(@report, ir), class: 'btn green btn-xs' %>
+                <%= link_to 'Delete', report_instagram_report_path(@report, ir), method: 'delete', class: 'btn green btn-xs' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+</div>

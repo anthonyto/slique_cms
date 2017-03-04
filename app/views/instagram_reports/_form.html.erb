@@ -1,4 +1,4 @@
-<%= form_for(@ir) do |f| %>
+<%= form_for([@report, @ir]) do |f| %>
   <div class="form-body">
     <% if @ir.errors.any? %>
       <div id="error_explanation">
@@ -20,6 +20,15 @@
     </div>
 
     <div class="form-group">
+      <% if @ir.image.present? %>
+        <p>Current Image</p>
+        <%= image_tag @ir.image %>
+      <% else %>
+        <p>Currently no image.</p>
+      <% end %>
+    </div>
+
+    <div class="form-group">
       <%= f.label :image, "Image" %>
       <div class="input-group">
         <%= f.file_field :image %>
@@ -27,7 +36,7 @@
     </div>
 
     <div class="actions">
-      <%= f.submit 'Create Instagram Report', class: 'btn green-meadow' %>
+      <%= f.submit (f.object.new_record? ? "Add Instagram Report" : "Update Instagram Report"), class: 'btn green-meadow' %>
       <%= link_to 'Cancel', :back, class: 'btn grey-silver' %>
     </div>
   </div>

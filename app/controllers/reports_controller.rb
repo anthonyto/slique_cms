@@ -1,5 +1,9 @@
 class ReportsController < ApplicationController
-  before_action :load_account
+  before_action :load_account, only: [:new, :create]
+
+  def show
+    @report = Report.find(params[:id])
+  end
 
   def new
     @report = @account.reports.new
@@ -9,7 +13,7 @@ class ReportsController < ApplicationController
     @report = @account.reports.new(report_params)
     if @report.save
       flash[:notice] = "Report successfully created"
-      redirect_to @account
+      redirect_to @report
     else
       flash[:error] = "Report could not be created"
       render :new

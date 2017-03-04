@@ -242,7 +242,7 @@
       <tbody>
         <% @account.reports.each do |report| %>
           <tr>
-            <td><%= report.created_at.strftime("%B %d, %Y") %></td>
+            <td><%= link_to report.created_at.strftime("%B %d, %Y"), report_path(report) %></td>
             <td><%= report.focus %></td>
           </tr>
         <% end %>
