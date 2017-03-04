@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170224195717) do
+ActiveRecord::Schema.define(version: 20170304160637) do
 
   create_table "accounts", force: :cascade do |t|
     t.text    "client",                limit: 65535
@@ -51,7 +51,10 @@ ActiveRecord::Schema.define(version: 20170224195717) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.integer  "report_id",          limit: 4
   end
+
+  add_index "instagram_reports", ["report_id"], name: "index_instagram_reports_on_report_id", using: :btree
 
   create_table "reports", force: :cascade do |t|
     t.text     "focus",                         limit: 65535
@@ -61,9 +64,11 @@ ActiveRecord::Schema.define(version: 20170224195717) do
     t.integer  "account_id",                    limit: 4
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
+    t.integer  "instagram_report_id",           limit: 4
   end
 
   add_index "reports", ["account_id"], name: "index_reports_on_account_id", using: :btree
+  add_index "reports", ["instagram_report_id"], name: "index_reports_on_instagram_report_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.string  "name",       limit: 255
@@ -72,5 +77,7 @@ ActiveRecord::Schema.define(version: 20170224195717) do
     t.integer "account_id", limit: 4
   end
 
+  add_foreign_key "instagram_reports", "reports"
   add_foreign_key "reports", "accounts"
+  add_foreign_key "reports", "instagram_reports"
 end
