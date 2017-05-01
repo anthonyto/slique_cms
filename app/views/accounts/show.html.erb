@@ -7,9 +7,27 @@
     <table class="table table-bordered table-hover">
       <tbody>
         <tr>
-          <th scope="row">Client</th>
-          <td><%= @account.client %></td>
+          <th scope="row">Name</th>
+          <td><%= @account.client_name %></td>
         </tr>
+        <tr>
+          <th scope="row">Email</th>
+          <td><%= @account.client_email %></td>
+        </tr>
+        <tr>
+          <th scope="row">Phone</th>
+          <td><%= @account.client_phone %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="sub-container">
+  <h2 class="inline">Account Overview</h2>
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
         <tr>
           <th scope="row">Slique Email</th>
           <td><%= @account.slique_email %></td>

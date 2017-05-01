@@ -44,7 +44,9 @@ class AccountsController < ApplicationController
   def account_params
     params.require(:account).permit(
       :name,
-      :client,
+      :client_name,
+      :client_email,
+      :client_phone,
       :services,
       :instagram,
       :facebook,

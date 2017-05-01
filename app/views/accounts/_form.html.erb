@@ -14,16 +14,30 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :name, "Name" %>
+      <%= f.label :name, "Name*" %>
       <div class="input-group">
         <%= f.text_field :name, class: 'form-control input-xlarge' %>
       </div>
     </div>
 
     <div class="form-group">
-      <%= f.label :client, "Client" %>
+      <%= f.label :client_name, "Client Name*" %>
       <div class="input-group">
-        <%= f.text_field :client, class: 'form-control input-xlarge' %>
+        <%= f.text_field :client_name, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :client_email, "Client Email*" %>
+      <div class="input-group">
+        <%= f.text_field :client_email, class: 'form-control input-xlarge' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :client_phone, "Client Phone Number*" %>
+      <div class="input-group">
+        <%= f.text_field :client_phone, class: 'form-control input-xlarge' %>
       </div>
     </div>
 
@@ -57,7 +71,7 @@
     </div>
 
     <div class="form-group">
-      <%= f.label :slique_email, "Slique Email" %>
+      <%= f.label :slique_email, "Slique Email*" %>
       <div class="input-group">
         <%= f.text_field :slique_email, class: 'form-control input-xlarge' %>
       </div>

@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304160637) do
+ActiveRecord::Schema.define(version: 20170501203843) do
 
   create_table "accounts", force: :cascade do |t|
-    t.text    "client",                limit: 65535
+    t.text    "client_name",           limit: 65535
     t.text    "services",              limit: 65535
     t.text    "instagram",             limit: 65535
     t.text    "facebook",              limit: 65535
@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170304160637) do
     t.text    "promotions",            limit: 65535
     t.text    "notes",                 limit: 65535
     t.string  "name",                  limit: 255
+    t.string  "client_email",          limit: 255
+    t.string  "client_phone",          limit: 255
   end
 
   create_table "creative_developments", force: :cascade do |t|

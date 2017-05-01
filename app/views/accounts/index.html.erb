@@ -19,7 +19,7 @@
         <% @accounts.each do |a| %>
           <tr>
             <td><%= link_to a.name, account_path(a) %></td>
-            <td><%= a.client %></td>
+            <td><%= a.client_name %></td>
           </tr>
         <% end %>
       </tbody>
