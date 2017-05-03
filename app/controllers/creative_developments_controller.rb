@@ -37,12 +37,9 @@ class CreativeDevelopmentsController < ApplicationController
   end
 
   def destroy
-    if @creative_development.destroy
-      flash[:notice] = "Creative development deleted"
-      redirect_to @account
-    else
-      flash[:error] = "Creative development could not be deleted, please contact support"
-      redirect_to @account
+    @creative_development.destroy
+    respond_to do |format|
+      format.js
     end
   end
 

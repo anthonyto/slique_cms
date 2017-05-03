@@ -188,7 +188,7 @@
         </thead>
         <tbody>
           <% @account.creative_developments.each do |cd| %>
-            <tr>
+            <tr id="creative_development_<%= cd.id %>">
               <td><%= cd.design_name %></td>
               <td><%= cd.requested %></td>
               <td>
@@ -202,6 +202,7 @@
               </td>
               <td>
                 <%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn green btn-xs' %>
+                <%= link_to 'Delete', account_creative_development_path(@account, cd), data: { method: :delete, remote: true, confirm: 'Are you sure you want to delete this creative development?' }, class: 'btn red btn-xs' %>
               </td>
             </tr>
           <% end %>
