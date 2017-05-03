@@ -8,16 +8,10 @@ class CreativeDevelopmentsController < ApplicationController
   def update
     if @creative_development.update_attributes(creative_development_params)
       flash[:notice] = "Successfully updated"
-      respond_to do |format|
-        format.html { redirect_to @account }
-        format.json { head :ok, content_type: "text/html" }
-      end
+      redirect_to @account
     else
       flash[:error] = "Creative development update failed"
-      respond_to do |format|
-        format.html { render :edit }
-        format.json { head :ok, content_type: "text/html" }
-      end
+      render :edit
     end
   end
 

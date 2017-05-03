@@ -8,16 +8,10 @@ class TasksController < ApplicationController
   def update
     if @task.update_attributes(task_params)
       flash[:notice] = "Successfully updated"
-      respond_to do |format|
-        format.html { redirect_to @account }
-        format.json { head :ok, content_type: "text/html" }
-      end
+      redirect_to @account
     else
       flash[:error] = "Task update failed"
-      respond_to do |format|
-        format.html { render :edit }
-        format.json { head :ok, content_type: "text/html" }
-      end
+      render :edit
     end
   end
 
