@@ -21,17 +21,12 @@
   <div class="form-group">
     <%= f.label :requested, "Requested" %>
     <div class="input-group">
-      <%# f.text_field :requested, class: 'form-control form-control-inline input-medium date-picker', size: 16, placeholder: 'Select date' %>
       <%= f.date_field :requested %>
-
     </div>
   </div>
 
   <div class="actions">
     <%= f.submit (f.object.new_record? ? "Add Creative Development" : "Update Creative Development"), class: 'btn green-meadow' %>
-    <% unless f.object.new_record? %>
-      <%= link_to 'Delete', account_creative_development_path(@account, @creative_development), method: 'delete', class: 'btn red-sunglo' %>
-    <% end %>
     <%= link_to 'Cancel', :back, class: 'btn grey-silver' %>
   </div>
 <% end %>
