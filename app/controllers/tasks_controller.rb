@@ -37,12 +37,9 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    if @task.destroy
-      flash[:notice] = "Task deleted"
-      redirect_to @account
-    else
-      flash[:error] = "Task could not be deleted, please contact support"
-      redirect_to @account
+    @task.destroy
+    respond_to do |format|
+      format.js
     end
   end
 

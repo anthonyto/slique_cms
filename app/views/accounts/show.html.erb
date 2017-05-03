@@ -133,7 +133,7 @@
   <h2 class="inline">Tasks</h2><%= link_to 'Add', new_account_task_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
 
   <% if @account.tasks.empty? %>
-    <p>No tasks yet.</p>
+    <p>No current tasks</p>
   <% else %>
     <div class="table-scrollable">
       <table class="table table-hover table-light">
@@ -147,7 +147,7 @@
         </thead>
         <tbody>
           <% @account.tasks.each do |task| %>
-            <tr>
+            <tr id="task_<%= task.id %>">
               <td><%= task.name %></td>
               <td><%= task.requested %></td>
               <td>
@@ -161,6 +161,7 @@
               </td>
               <td>
                 <%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn green btn-xs' %>
+                <%= link_to 'Delete', account_task_path(@account, task), data: { method: :delete, remote: true, confirm: 'Are you sure you want to delete this task?' }, class: 'btn red btn-xs' %>
               </td>
             </tr>
           <% end %>
@@ -174,7 +175,7 @@
   <h2 class="inline">Creative Developments</h2><%= link_to 'Add', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
 
   <% if @account.creative_developments.empty? %>
-    <p>No creative developments yet.</p>
+    <p>No current creative developments</p>
   <% else %>
     <div class="table-scrollable">
       <table class="table table-hover table-light">
