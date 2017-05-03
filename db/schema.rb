@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170501203843) do
+ActiveRecord::Schema.define(version: 20170503043053) do
 
   create_table "accounts", force: :cascade do |t|
     t.text    "client_name",           limit: 65535
@@ -58,6 +58,24 @@ ActiveRecord::Schema.define(version: 20170501203843) do
 
   add_index "instagram_reports", ["report_id"], name: "index_instagram_reports_on_report_id", using: :btree
 
+  create_table "monthly_messaging_timelines", force: :cascade do |t|
+    t.integer  "account_id", limit: 4
+    t.text     "january",    limit: 65535
+    t.text     "february",   limit: 65535
+    t.text     "march",      limit: 65535
+    t.text     "april",      limit: 65535
+    t.text     "may",        limit: 65535
+    t.text     "june",       limit: 65535
+    t.text     "july",       limit: 65535
+    t.text     "august",     limit: 65535
+    t.text     "september",  limit: 65535
+    t.text     "october",    limit: 65535
+    t.text     "november",   limit: 65535
+    t.text     "december",   limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "reports", force: :cascade do |t|
     t.text     "focus",                         limit: 65535
     t.text     "creative_developments_summary", limit: 65535
@@ -66,11 +84,9 @@ ActiveRecord::Schema.define(version: 20170501203843) do
     t.integer  "account_id",                    limit: 4
     t.datetime "created_at",                                  null: false
     t.datetime "updated_at",                                  null: false
-    t.integer  "instagram_report_id",           limit: 4
   end
 
   add_index "reports", ["account_id"], name: "index_reports_on_account_id", using: :btree
-  add_index "reports", ["instagram_report_id"], name: "index_reports_on_instagram_report_id", using: :btree
 
   create_table "tasks", force: :cascade do |t|
     t.string  "name",       limit: 255
@@ -81,5 +97,4 @@ ActiveRecord::Schema.define(version: 20170501203843) do
 
   add_foreign_key "instagram_reports", "reports"
   add_foreign_key "reports", "accounts"
-  add_foreign_key "reports", "instagram_reports"
 end

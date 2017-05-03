@@ -6,6 +6,8 @@ class AccountsController < ApplicationController
   end
 
   def show
+    # get rid of this assignment and use a loop in the view instead
+    @mmt = @account.monthly_messaging_timeline
   end
 
   def edit

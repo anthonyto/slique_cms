@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :tasks, except: [:index, :show]
     resources :creative_developments,  except: [:index, :show]
     resources :reports, only: [:new, :create]
+    resource :monthly_messaging_timeline, only: [:edit, :update]
   end
 
   resources :reports, only: [:show] do

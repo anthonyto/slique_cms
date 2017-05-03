@@ -1,0 +1,105 @@
+<h1>Editing Monthly Messaging Timeline</h1>
+
+<%= form_for([@account, @mmt]) do |f| %>
+  <% if @mmt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mmt.errors.count, "error") %> prohibited this mmt from being saved:</h2>
+
+      <ul>
+      <% @mmt.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :january, "January" %>
+    <div class="input-group">
+      <%= f.text_area :january, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :february, "February" %>
+    <div class="input-group">
+      <%= f.text_area :february, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :march, "March" %>
+    <div class="input-group">
+      <%= f.text_area :march, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :april, "April" %>
+    <div class="input-group">
+      <%= f.text_area :april, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :may, "May" %>
+    <div class="input-group">
+      <%= f.text_area :may, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :june, "June" %>
+    <div class="input-group">
+      <%= f.text_area :june, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :july, "July" %>
+    <div class="input-group">
+      <%= f.text_area :july, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :august, "August" %>
+    <div class="input-group">
+      <%= f.text_area :august, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :september, "September" %>
+    <div class="input-group">
+      <%= f.text_area :september, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :october, "October" %>
+    <div class="input-group">
+      <%= f.text_area :october, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :november, "November" %>
+    <div class="input-group">
+      <%= f.text_area :november, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :december, "December" %>
+    <div class="input-group">
+      <%= f.text_area :december, class: 'form-control input-xlarge', rows: 3 %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update", class: 'btn green-meadow' %>
+    <%= link_to 'Cancel', :back, class: 'btn grey-silver' %>
+  </div>
+<% end %>
+
