@@ -1,0 +1,61 @@
+<div class="sub-container">
+  <div class="table-scrollable">
+    <table class="table table-bordered">
+      <tr class="month-row">
+        <td>
+          <strong>January</strong>
+          <%= simple_format(@mmt.january) %>
+        </td>
+        <td>
+          <strong>February</strong>
+          <%= simple_format(@mmt.february) %>
+        </td>
+        <td>
+          <strong>March</strong>
+          <%= simple_format(@mmt.march) %>
+        </td>
+        <td>
+          <strong>April</strong>
+          <%= simple_format(@mmt.april) %>
+        </td>
+      </tr>
+      <tr class="month-row">
+        <td>
+          <strong>May</strong>
+          <%= simple_format(@mmt.may) %>
+        </td>
+        <td>
+          <strong>June</strong>
+          <%= simple_format(@mmt.june) %>
+        </td>
+        <td>
+          <strong>July</strong>
+          <%= simple_format(@mmt.july) %>
+        </td>
+        <td>
+          <strong>August</strong>
+          <%= simple_format(@mmt.august) %>
+        </td>
+      </tr>
+      <tr class="month-row">
+        <td>
+          <strong>September</strong>
+          <%= simple_format(@mmt.september) %>
+        </td>
+        <td>
+          <strong>October</strong>
+          <%= simple_format(@mmt.october) %>
+        </td>
+        <td>
+          <strong>November</strong>
+          <%= simple_format(@mmt.november) %>
+        </td>
+        <td>
+          <strong>December</strong>
+          <%= simple_format(@mmt.december) %>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <%= link_to 'Edit', edit_account_monthly_messaging_timeline_path(@account), class: 'btn green-meadow btn-med inline-btn' %>
+</div>

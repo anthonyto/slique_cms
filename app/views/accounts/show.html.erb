@@ -1,330 +1,41 @@
 <p id="notice"><%= notice %></p>
 
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#tab_1" data-toggle="tab">Overview</a></li>
+  <li><a href="#tab_2" data-toggle="tab">Client</a></li>
+  <li><a href="#tab_3" data-toggle="tab">Channels</a></li>
+  <li class="dropdown">
+    <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+      Messaging Timelines
+      <i class="fa fa-angle-down"></i>
+    </a>
+    <ul class="dropdown-menu" role="menu">
+      <li>
+        <a href="#tab_4" tabindex="-1" data-toggle="tab">Quarterly</a>
+      </li>
+      <li>
+        <a href="#tab_5" tabindex="-1" data-toggle="tab">Monthly</a>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#tab_6" data-toggle="tab">Client Requests</a></li>
+  <li><a href="#tab_7" data-toggle="tab">Tasks</a></li>
+  <li><a href="#tab_8" data-toggle="tab">Creative Developments</a></li>
+  <li><a href="#tab_9" data-toggle="tab">Correspondence</a></li>
+  <li><a href="#tab_10" data-toggle="tab"> Notes</a></li>
+</ul>
+
 <h2 class="inline"><%= @account.name %></h2>
-
-<div class="sub-container">
-  <div class="table-scrollable">
-    <table class="table table-bordered table-hover">
-      <tbody>
-        <tr>
-          <th scope="row">Name</th>
-          <td><%= @account.client_name %></td>
-        </tr>
-        <tr>
-          <th scope="row">Email</th>
-          <td><%= @account.client_email %></td>
-        </tr>
-        <tr>
-          <th scope="row">Phone</th>
-          <td><%= @account.client_phone %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+<div class="tab-content">
+  <div class="tab-pane fade active in" id="tab_1"><%= render 'accounts/show/overview' %></div>
+  <div class="tab-pane fade" id="tab_2"><%= render 'accounts/show/client' %></div>
+  <div class="tab-pane fade" id="tab_3"><%= render 'accounts/show/channels' %></div>
+  <div class="tab-pane fade" id="tab_4"><%= render 'accounts/show/messaging_timeline_quarterly' %></div>
+  <div class="tab-pane fade" id="tab_5"><%= render 'accounts/show/messaging_timeline_monthly' %></div>
+  <div class="tab-pane fade" id="tab_6"><%= render 'accounts/show/client_requests' %></div>
+  <div class="tab-pane fade" id="tab_7"><%= render 'accounts/show/tasks' %></div>
+  <div class="tab-pane fade" id="tab_8"><%= render 'accounts/show/creative_developments' %></div>
+  <div class="tab-pane fade" id="tab_9"><%= render 'accounts/show/correspondence' %></div>
+  <div class="tab-pane fade" id="tab_10"><%= render 'accounts/show/notes' %></div>
+  <div class="tab-pane fade" id="tab_11"><%= render 'accounts/show/reports' %></div>
 </div>
-
-<div class="sub-container">
-  <h2 class="inline">Account Overview</h2>
-  <div class="table-scrollable">
-    <table class="table table-bordered table-hover">
-      <tbody>
-        <tr>
-          <th scope="row">Slique Email</th>
-          <td><%= @account.slique_email %></td>
-        </tr>
-        <tr>
-          <th scope="row">Services</th>
-          <td><%= @account.services %></td>
-        </tr>
-        <tr>
-          <th scope="row">Pr Partner</th>
-          <td><%= @account.pr_partner %></td>
-        </tr>
-        <tr>
-          <th scope="row">Five Star Boss</th>
-          <td><%= @account.fivestarboss.humanize %></td>
-        </tr>
-        <tr>
-          <th scope="row">Facebook Ads</th>
-          <td><%= @account.facebook_ad.humanize %></td>
-        </tr>
-        <tr>
-          <th scope="row">Facebook Ad Notes</th>
-          <td><%= @account.facebook_ad_notes %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Channels</h2>
-  <div class="table-scrollable">
-    <table class="table table-hover table-light">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Facebook</td>
-          <td><%= simple_format(@account.facebook) %></td>
-        </tr>
-        <tr>
-          <td>Instagram</td>
-          <td><%= simple_format(@account.instagram) %></td>
-        </tr>
-        <tr>
-          <td>Yelp</td>
-          <td><%= simple_format(@account.yelp) %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Messaging Timeline - Quarterly</h2>
-  <div class="table-scrollable">
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>Messaging Timeline Q1</th>
-          <th>Messaging Timeline Q2</th>
-          <th>Messaging Timeline Q3</th>
-          <th>Messaging Timeline Q4</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= simple_format(@account.messaging_timeline_q1) %></td>
-          <td><%= simple_format(@account.messaging_timeline_q2) %></td>
-          <td><%= simple_format(@account.messaging_timeline_q3) %></td>
-          <td><%= simple_format(@account.messaging_timeline_q4) %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Messaging Timeline - Monthly</h2><%= link_to 'Edit', edit_account_monthly_messaging_timeline_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
-  <div class="table-scrollable">
-    <table class="table table-bordered">
-      <tr class="month-row">
-        <td>
-          <strong>January</strong>
-          <%= simple_format(@mmt.january) %>
-        </td>
-        <td>
-          <strong>February</strong>
-          <%= simple_format(@mmt.february) %>
-        </td>
-        <td>
-          <strong>March</strong>
-          <%= simple_format(@mmt.march) %>
-        </td>
-        <td>
-          <strong>April</strong>
-          <%= simple_format(@mmt.april) %>
-        </td>
-      </tr>
-      <tr class="month-row">
-        <td>
-          <strong>May</strong>
-          <%= simple_format(@mmt.may) %>
-        </td>
-        <td>
-          <strong>June</strong>
-          <%= simple_format(@mmt.june) %>
-        </td>
-        <td>
-          <strong>July</strong>
-          <%= simple_format(@mmt.july) %>
-        </td>
-        <td>
-          <strong>August</strong>
-          <%= simple_format(@mmt.august) %>
-        </td>
-      </tr>
-      <tr class="month-row">
-        <td>
-          <strong>September</strong>
-          <%= simple_format(@mmt.september) %>
-        </td>
-        <td>
-          <strong>October</strong>
-          <%= simple_format(@mmt.october) %>
-        </td>
-        <td>
-          <strong>November</strong>
-          <%= simple_format(@mmt.november) %>
-        </td>
-        <td>
-          <strong>December</strong>
-          <%= simple_format(@mmt.december) %>
-        </td>
-      </tr>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Client Requests</h2>
-  <div class="table-scrollable">
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>Priorities</th>
-          <th>Promotions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= simple_format(@account.priorities) %></td>
-          <td><%= simple_format(@account.promotions) %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Tasks</h2><%= link_to 'Add', new_account_task_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
-
-  <% if @account.tasks.empty? %>
-    <p>No current tasks</p>
-  <% else %>
-    <div class="table-scrollable">
-      <table class="table table-hover table-light">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Requested</th>
-            <th>Completed</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @account.tasks.each do |task| %>
-            <tr id="task_<%= task.id %>">
-              <td><%= task.name %></td>
-              <td><%= task.requested %></td>
-              <td>
-                <%= best_in_place task,
-                      :completed,
-                      as: :checkbox,
-                      collection: {
-                        false: fa_icon('circle-o'),
-                        true: fa_icon('check-circle-o') },
-                      url: account_task_path(@account, task) %>
-              </td>
-              <td>
-                <%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn green btn-xs' %>
-                <%= link_to 'Delete', account_task_path(@account, task), data: { method: :delete, remote: true, confirm: 'Are you sure you want to delete this task?' }, class: 'btn red btn-xs' %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Creative Developments</h2><%= link_to 'Add', new_account_creative_development_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
-
-  <% if @account.creative_developments.empty? %>
-    <p>No current creative developments</p>
-  <% else %>
-    <div class="table-scrollable">
-      <table class="table table-hover table-light">
-        <thead>
-          <tr>
-            <th>Design Name</th>
-            <th>Requested</th>
-            <th>Completed</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @account.creative_developments.each do |cd| %>
-            <tr id="creative_development_<%= cd.id %>">
-              <td><%= cd.design_name %></td>
-              <td><%= cd.requested %></td>
-              <td>
-                <%= best_in_place cd,
-                      :completed,
-                      as: :checkbox,
-                      collection: {
-                        false: fa_icon('circle-o'),
-                        true: fa_icon('check-circle-o') },
-                      url: account_creative_development_path(@account, cd) %>
-              </td>
-              <td>
-                <%= link_to 'Edit', edit_account_creative_development_path(@account, cd), class: 'btn green btn-xs' %>
-                <%= link_to 'Delete', account_creative_development_path(@account, cd), data: { method: :delete, remote: true, confirm: 'Are you sure you want to delete this creative development?' }, class: 'btn red btn-xs' %>
-              </td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-  <% end %>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Correspondence</h2>
-  <div class="table-scrollable">
-    <table class="table table-bordered table-hover">
-      <tbody>
-        <tr>
-          <th scope="row">Correspondence</th>
-          <td><%= @account.correspondence %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Notes</h2>
-  <div class="table-scrollable">
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>Notes</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><%= simple_format(@account.notes) %></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<div class="sub-container">
-  <h2 class="inline">Reports</h2><%= link_to 'Add', new_account_report_path(@account), class: 'btn green-meadow btn-xs inline-btn' %>
-  <div class="table-scrollable">
-    <table class="table table-hover table-light">
-      <thead>
-        <tr>
-          <th>Month</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @account.reports.each do |report| %>
-          <tr>
-            <td><%= link_to report.month, report_path(report) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<%= link_to 'Edit Account', edit_account_path(@account), class: 'btn green-meadow btn-lg inline-btn' %>

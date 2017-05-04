@@ -1,0 +1,18 @@
+<div class="sub-container">
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Priorities</th>
+          <th>Promotions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= simple_format(@account.priorities) %></td>
+          <td><%= simple_format(@account.promotions) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

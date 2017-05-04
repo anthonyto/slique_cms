@@ -1,0 +1,40 @@
+<div class="sub-container">
+  <% if @account.tasks.empty? %>
+    <p>No current tasks</p>
+  <% else %>
+    <div class="table-scrollable">
+      <table class="table table-hover table-light">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Requested</th>
+            <th>Completed</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @account.tasks.each do |task| %>
+            <tr id="task_<%= task.id %>">
+              <td><%= task.name %></td>
+              <td><%= task.requested %></td>
+              <td>
+                <%= best_in_place task,
+                      :completed,
+                      as: :checkbox,
+                      collection: {
+                        false: fa_icon('circle-o'),
+                        true: fa_icon('check-circle-o') },
+                      url: account_task_path(@account, task) %>
+              </td>
+              <td>
+                <%= link_to 'Edit', edit_account_task_path(@account, task), class: 'btn green btn-xs' %>
+                <%= link_to 'Delete', account_task_path(@account, task), data: { method: :delete, remote: true, confirm: 'Are you sure you want to delete this task?' }, class: 'btn red btn-xs' %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <%= link_to 'Add a Task', new_account_task_path(@account), class: 'btn green-meadow btn-med inline-btn' %>
+</div>

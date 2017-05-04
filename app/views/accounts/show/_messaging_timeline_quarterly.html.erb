@@ -1,0 +1,22 @@
+<div class="sub-container">
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>Messaging Timeline Q1</th>
+          <th>Messaging Timeline Q2</th>
+          <th>Messaging Timeline Q3</th>
+          <th>Messaging Timeline Q4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= simple_format(@account.messaging_timeline_q1) %></td>
+          <td><%= simple_format(@account.messaging_timeline_q2) %></td>
+          <td><%= simple_format(@account.messaging_timeline_q3) %></td>
+          <td><%= simple_format(@account.messaging_timeline_q4) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="sub-container">
+  <div class="table-scrollable">
+    <table class="table table-bordered table-hover">
+      <tbody>
+        <tr>
+          <th scope="row">Slique Email</th>
+          <td><%= @account.slique_email %></td>
+        </tr>
+        <tr>
+          <th scope="row">Services</th>
+          <td><%= @account.services %></td>
+        </tr>
+        <tr>
+          <th scope="row">Pr Partner</th>
+          <td><%= @account.pr_partner %></td>
+        </tr>
+        <tr>
+          <th scope="row">Five Star Boss</th>
+          <td><%= @account.fivestarboss.humanize %></td>
+        </tr>
+        <tr>
+          <th scope="row">Facebook Ads</th>
+          <td><%= @account.facebook_ad.humanize %></td>
+        </tr>
+        <tr>
+          <th scope="row">Facebook Ad Notes</th>
+          <td><%= @account.facebook_ad_notes %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <%= link_to 'Edit Account', edit_account_path(@account), class: 'btn green-meadow btn-med inline-btn' %>
+</div>

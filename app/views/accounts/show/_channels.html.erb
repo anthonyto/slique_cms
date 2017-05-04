@@ -1,0 +1,26 @@
+<div class="sub-container">
+  <div class="table-scrollable">
+    <table class="table table-hover table-light">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Facebook</td>
+          <td><%= simple_format(@account.facebook) %></td>
+        </tr>
+        <tr>
+          <td>Instagram</td>
+          <td><%= simple_format(@account.instagram) %></td>
+        </tr>
+        <tr>
+          <td>Yelp</td>
+          <td><%= simple_format(@account.yelp) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
