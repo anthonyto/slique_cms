@@ -14,3 +14,16 @@
  *= require_tree .
  *= require_self
  */
+
+.nav-tabs {
+  margin-bottom: 0;
+}
+
+.tab-pane {
+  padding-top: 10px;
+  background-color: #FFFFFF;
+}
+
+.sub-container {
+/*  background-color: #FFFFFF;*/
+}
