@@ -27,3 +27,7 @@
 .sub-container {
 /*  background-color: #FFFFFF;*/
 }
+
+.page-header-top {
+  height: 140px !important;
+}
